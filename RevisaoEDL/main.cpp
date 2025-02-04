@@ -6,6 +6,7 @@
 #include "documento.cpp"
 #include "FilaDocumento.h"
 #include "listaCircular.h"
+#include "filaCircular.h"
 
 using namespace std;
 
@@ -105,6 +106,18 @@ void FilaDoc() {
 	fila.displayFila();
 }
 
+
+void BufferTarefas(){
+    FilaCircular<string> fila=FilaCircular<string>(3);
+
+    fila.Inserir("Ler um livro");
+    fila.Inserir("Ler Talentos extraordinarios");
+    fila.Inserir("Refletir");
+    fila.displayAll();
+    cout<<""<<endl;
+    fila.Inserir("Fazer sucesso");
+    fila.displayAll();
+}
 void ListaCircularJosephus(){
     ListaCircular<string> lista=ListaCircular<string>();
 
@@ -120,6 +133,6 @@ void ListaCircularJosephus(){
 }
 int main(int argc, char* argv[]) {
 
-    ListaCircularJosephus();
+    BufferTarefas();
 	return 0;
 }
