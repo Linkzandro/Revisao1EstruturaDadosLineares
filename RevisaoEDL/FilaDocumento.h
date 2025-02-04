@@ -1,18 +1,22 @@
 #pragma once
 #include <iostream>
-#include "fila.h"
 #include "documento.h"
 #include "No.h"
 using namespace std;
-class FilaDocumento:public Fila<Documento>
+class FilaDocumento
 {
-
+private:
+    No<Documento>* head;
+    No<Documento>* tail;
 public:
-	using Fila<Documento>::Fila;
+	FilaDocumento(){
+        head=nullptr;
+        tail=nullptr;
+	}
 
 	void InsertDocument(Documento objeto) {
 	    No<Documento>* no=new No<Documento>(objeto);
-		if (this->top() == nullptr) {
+		if (head == nullptr) {
             cout<<no->getObject().getPriority()<<"1";
 			head=no;
 			tail=no;
@@ -27,16 +31,13 @@ public:
 
         }
 		if (no->getObject().getPriority() == "urgente") {
-			if (this->top()->getObject().getPriority()=="normal") {
-				no->setNext(this->top());
+			if (head->getObject().getPriority()=="normal") {
+				no->setNext(head);
 				head=no;
 				return;
 			}
 			No<Documento>* atual = head;
-			cout<<*(atual);
 			while (atual!= nullptr) {
-                cout<<no->getObject().getPriority()<<objeto.getName()<<"4";
-
 				if (atual->getObject().getPriority()=="urgente" && atual->getNext()->getObject().getPriority() =="normal") {
                     cout<<no->getObject().getPriority()<<"5";
 					no->setNext(atual->getNext());
@@ -49,7 +50,7 @@ public:
 	}
 
 	void displayFila() {
-		No<Documento>* atual=this->top();
+		No<Documento>* atual=head;
 
 		while (atual != nullptr) {
 			cout << "Nome: " << atual->getObject().getName() << " Prioridade: " << atual->getObject().getPriority() << endl;

@@ -92,15 +92,15 @@ void AtenderCliente() {
 void FilaDoc() {
 	FilaDocumento fila = FilaDocumento();
 	Documento doc("Joao","normal");
-	fila.Insert(doc);
+	fila.InsertDocument(doc);
 	doc=Documento("Pedro","urgente");
 	fila.InsertDocument(doc);
 	doc=Documento("Jose","normal");
-	fila.Insert(doc);
+	fila.InsertDocument(doc);
 	doc=Documento("Josias","urgente");
-	fila.Insert(doc);
+	fila.InsertDocument(doc);
     doc=Documento("zefa","urgente");
-    fila.Insert(doc);
+    fila.InsertDocument(doc);
 	fila.displayFila();
 }
 int main(int argc, char* argv[]) {
