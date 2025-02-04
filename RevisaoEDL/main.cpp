@@ -5,6 +5,7 @@
 #include "fila.h"
 #include "documento.cpp"
 #include "FilaDocumento.h"
+#include "listaCircular.h"
 
 using namespace std;
 
@@ -103,9 +104,22 @@ void FilaDoc() {
     fila.InsertDocument(doc);
 	fila.displayFila();
 }
+
+void ListaCircularJosephus(){
+    ListaCircular<string> lista=ListaCircular<string>();
+
+    lista.insertHead("jose");
+    lista.insertHead("maria");
+    lista.insertHead("Joao");
+    lista.insertHead("robs");
+    lista.insertHead("pedro");
+    lista.Josephus(2);
+    lista.displayAll();
+
+
+}
 int main(int argc, char* argv[]) {
 
-	FilaDoc();
-
+    ListaCircularJosephus();
 	return 0;
 }
