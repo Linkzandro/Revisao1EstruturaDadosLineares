@@ -1,6 +1,7 @@
 #include <iostream>
 #include "ListaSimples.h"
 #include "ListaDupla.h"
+#include "pilha.h"
 
 using namespace std;
 
@@ -30,9 +31,50 @@ void VerificarListaDupla() {
 	lista->InserCrescente(4);
 	lista->displayAll();
 }
+
+void ReverterFrase() {
+	Pilha<char>* p = new Pilha<char>();
+	cout << "indique uma frase para ser invertida ";
+	string frase;
+	cin >> frase;
+
+	for (char letra : frase) {
+		p->insert(letra);
+	}
+	while (p->isEmpty() != true) {
+		cout << p->pop();
+	}
+}
+void BalancearEquacao() {
+	Pilha<char> p = Pilha<char>();
+
+	cout << "entre com uma equação matematica ";
+	string frase;
+	cin >> frase;
+	 
+	for(char letra : frase){
+		if (letra == '(') {
+			p.insert(letra);
+		}
+
+		if (letra == ')') {
+			if (p.isEmpty() || p.pop() != '(') {
+				cout << "equação desbalanceada " << endl;
+				return;
+			}
+		}
+
+	}
+	if (p.isEmpty() != true) {
+		cout << "equação desbalanceada " << endl;
+		return;
+	}
+
+	cout << "equação balanceada " << endl;
+}
 int main(int argc, char* argv[]) {
-	VerificarListaDupla();
 	
+	BalancearEquacao();
 
 	return 0;
 }
