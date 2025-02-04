@@ -13,14 +13,12 @@ public:
 	void InsertDocument(Documento objeto) {
 	    No<Documento>* no=new No<Documento>(objeto);
 		if (this->top() == nullptr) {
-            cout<<no->getObject().getPriority()<<"1";
 			head=no;
 			tail=no;
 			return;
 		}
 
         if(no->getObject().getPriority() == "normal"){
-            cout<<no->getObject().getPriority()<<"2";
             tail->setNext(no);
             tail=no;
             return;
@@ -33,12 +31,8 @@ public:
 				return;
 			}
 			No<Documento>* atual = head;
-			cout<<*(atual);
 			while (atual!= nullptr) {
-                cout<<no->getObject().getPriority()<<objeto.getName()<<"4";
-
 				if (atual->getObject().getPriority()=="urgente" && atual->getNext()->getObject().getPriority() =="normal") {
-                    cout<<no->getObject().getPriority()<<"5";
 					no->setNext(atual->getNext());
 					atual->setNext(no);
 					return;
