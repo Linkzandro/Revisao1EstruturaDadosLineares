@@ -77,7 +77,7 @@ public:
 		if (head == nullptr || head->getObject()>objeto) {
 
 			head = no;
-			tail = nullptr;
+			tail = no;
 			return;
 		}
 

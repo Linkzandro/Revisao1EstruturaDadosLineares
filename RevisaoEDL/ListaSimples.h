@@ -18,7 +18,7 @@ public:
 		No<T>* no = new No<T>(objeto);
 		if (head == nullptr) {
 			head = no;
-			tail = nullptr;
+			tail = no;
 		}
 		else {
 			no->setNext(head);
@@ -30,7 +30,7 @@ public:
 		No<T>* no = new No<T>(objeto);
 		if (head == nullptr) {
 			head = no;
-			tail = nullptr;
+			tail = no;
 		}
 		else {
 			tail->setNext(no);
