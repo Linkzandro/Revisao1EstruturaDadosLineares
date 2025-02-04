@@ -2,6 +2,9 @@
 #include "ListaSimples.h"
 #include "ListaDupla.h"
 #include "pilha.h"
+#include "fila.h"
+#include "documento.h"
+#include "FilaDocumento.h"
 
 using namespace std;
 
@@ -72,9 +75,28 @@ void BalancearEquacao() {
 
 	cout << "equação balanceada " << endl;
 }
+void AtenderCliente() {
+	Fila<string> f =Fila<string>();
+	f.Insert("josé");
+	f.Insert("Maria");
+	f.Insert("Antonia");
+	f.Insert("Pedro");
+	f.displayall();
+
+	cout << "atendendo cliente " << f.pop() << endl;
+
+	cout << "clientes não atendidos:" << endl;
+	f.displayall();
+}
+
+void FilaDoc() {
+	FilaDocumento fila = FilaDocumento();
+	Documento doc("João","normal");
+	fila.Insert(doc);
+}
 int main(int argc, char* argv[]) {
 	
-	BalancearEquacao();
+	FilaDoc();
 
 	return 0;
 }
