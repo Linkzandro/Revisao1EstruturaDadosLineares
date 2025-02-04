@@ -8,7 +8,7 @@ private:
 	NoDuplo* previous;
 public:
 	//construtor com templates
-	template<class T> NoDuplo(T obj) {
+	NoDuplo(T obj) {
 		next = nullptr;
 		objeto = obj;
 	}

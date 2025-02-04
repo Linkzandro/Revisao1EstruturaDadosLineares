@@ -3,7 +3,7 @@
 #include "ListaDupla.h"
 #include "pilha.h"
 #include "fila.h"
-#include "documento.h"
+#include "documento.cpp"
 #include "FilaDocumento.h"
 
 using namespace std;
@@ -54,7 +54,7 @@ void BalancearEquacao() {
 	cout << "entre com uma equação matematica ";
 	string frase;
 	cin >> frase;
-	 
+
 	for(char letra : frase){
 		if (letra == '(') {
 			p.insert(letra);
@@ -91,11 +91,20 @@ void AtenderCliente() {
 
 void FilaDoc() {
 	FilaDocumento fila = FilaDocumento();
-	Documento doc("João","normal");
+	Documento doc("Joao","normal");
 	fila.Insert(doc);
+	doc=Documento("Pedro","urgente");
+	fila.InsertDocument(doc);
+	doc=Documento("Jose","normal");
+	fila.Insert(doc);
+	doc=Documento("Josias","urgente");
+	fila.Insert(doc);
+    doc=Documento("zefa","urgente");
+    fila.Insert(doc);
+	fila.displayFila();
 }
 int main(int argc, char* argv[]) {
-	
+
 	FilaDoc();
 
 	return 0;

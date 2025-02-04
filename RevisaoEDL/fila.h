@@ -5,7 +5,7 @@
 using namespace std;
 template<class T>
 class Fila {
-private:
+protected:
 	No<T>* head;
 	No<T>* tail;
 
@@ -43,7 +43,7 @@ public:
 			cout << atual->getObject()<<endl;
 			atual = atual->getNext();
 		}
-		
+
 	}
 
 protected:

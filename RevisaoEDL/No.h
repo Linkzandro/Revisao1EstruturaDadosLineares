@@ -7,10 +7,8 @@ class No
 		No* next;
 	public:
 		//construtor com templates
-		template<class T> No(T obj) {
-			next = nullptr;
-			objeto = obj;
-		}
+		No(T obj):next (nullptr),
+			objeto(obj){}
 
 
 		T getObject() {

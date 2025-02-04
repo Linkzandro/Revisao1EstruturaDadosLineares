@@ -11,27 +11,39 @@ public:
 	using Fila<Documento>::Fila;
 
 	void InsertDocument(Documento objeto) {
-		if (this->top() == nullptr || objeto.getPriority() == "normal") {
-			this->Insert(objeto);
+	    No<Documento>* no=new No<Documento>(objeto);
+		if (this->top() == nullptr) {
+            cout<<no->getObject().getPriority()<<"1";
+			head=no;
+			tail=no;
 			return;
 		}
 
-		if (objeto.getPriority() == "urgente") {
-			No<Documento>* noNovo = new No<Documento>(objeto);
+        if(no->getObject().getPriority() == "normal"){
+            cout<<no->getObject().getPriority()<<"2";
+            tail->setNext(no);
+            tail=no;
+            return;
 
+        }
+		if (no->getObject().getPriority() == "urgente") {
 			if (this->top()->getObject().getPriority()=="normal") {
-				noNovo->setNext(this->top());
-				this->setHead(noNovo);
+				no->setNext(this->top());
+				head=no;
+				return;
 			}
-			
-			No<Documento>* atual = this->top();
-			while (atual->getNext() != nullptr) {
-				
-				if (atual->getObject().getPriority()=="urgente" &&(atual->getNext()==nullptr || atual->getNext()->getObject().getPriority() =="normal")) {
-					noNovo->setNext(atual->getNext());
-					atual->setNext(noNovo);
+			No<Documento>* atual = head;
+			cout<<*(atual);
+			while (atual!= nullptr) {
+                cout<<no->getObject().getPriority()<<objeto.getName()<<"4";
+
+				if (atual->getObject().getPriority()=="urgente" && atual->getNext()->getObject().getPriority() =="normal") {
+                    cout<<no->getObject().getPriority()<<"5";
+					no->setNext(atual->getNext());
+					atual->setNext(no);
 					return;
 				}
+				atual=atual->getNext();
 			}
 		}
 	}

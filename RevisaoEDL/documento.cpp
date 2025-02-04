@@ -1,9 +1,8 @@
 #include "documento.h"
 
 
-Documento::Documento(string nomeC, string prioridadeC) {
-	nome = nomeC;
-	prioridade = prioridadeC;
+Documento::Documento(string nomeC, string prioridadeC):nome(nomeC),
+	prioridade(prioridadeC) {
 }
 
 string Documento::getName() {
