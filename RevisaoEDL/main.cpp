@@ -3,7 +3,6 @@
 #include "ListaDupla.h"
 #include "pilha.h"
 #include "fila.h"
-#include "documento.cpp"
 #include "FilaDocumento.h"
 #include "listaCircular.h"
 #include "filaCircular.h"
